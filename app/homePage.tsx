@@ -31,7 +31,6 @@ export function HomePage() {
               {section.id === "havana" && (
                 <HavanaIntro info={HavanaInfoMockData} section={section} />
               )}
-              
               {/* Rooms Carousel Section */}
               {section.id === "rooms" && (
                 <RoomsCarousel rooms={roomsMockData} amenities={amenitiesMockData} section={section} />
