@@ -45,7 +45,7 @@ export interface Room {
 export interface Amenity {
   id: string;
   name: string;
-  icon?: AmenityIcon; // "Wifi", "AcUnit", "LocalBreakfast"
+  icon?: AmenityIcon;
   isAvailable: boolean; 
 }
 export type AmenityIcon = 

@@ -17,7 +17,6 @@ export function HomePage() {
       <main>
         <Toolbar /> 
         {siteSectionsMockData.map((section, index) => {
-          // UX MAGIC: Even sections get 'default', odd sections get 'paper'
           const dynamicBg = index % 2 === 0 
             ? appTheme.palette.background.default 
             : appTheme.palette.background.paper;
@@ -46,10 +45,6 @@ export function HomePage() {
               {/* AboutUs Section */}
               {section.id === "booking" && (
                 <Booking contact={contactInfoMockData} section={section} />
-              )}
-              {/* Fallback for unbuilt sections */}
-              {section.id !== "havana" && section.id !== "rooms" && section.id !== "about" && section.id !== "booking" && (
-                <p>Content for {section.label} will go here.</p>
               )}
             </SectionWrapper>
           );
