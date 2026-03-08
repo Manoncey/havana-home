@@ -2,6 +2,7 @@ import type {
   Amenity, 
   CityInfo, 
   ContactInfo, 
+  GalleryPhoto, 
   HostProfile, 
   Room, 
   Section, 
@@ -30,6 +31,12 @@ export const siteSectionsMockData: Section[] = [
     title: { en: "Meet Your Hosts", fr: "Rencontrez Vos Hôtes", es: "Conozca a Sus Anfitriones" }
   },
   { 
+    id: "house", 
+    icon: "House",
+    label: { en: "Our House", fr: "Notre Maison", es: "Nuestra Casa" },
+    title: { en: "Discover where you'll be staying", fr: "Découvrez où vous séjournerez", es: "Descubra dónde se alojará" }
+  },
+  { 
     id: "booking", 
     icon: "BookOnline",
     label: { en: "How to Book", fr: "Comment Réserver", es: "Cómo Reservar" },
@@ -40,7 +47,6 @@ export const siteSectionsMockData: Section[] = [
 export const contactInfoMockData: ContactInfo = {
   phone: "+33650388510",
   email: "venturamanon@gmail.com",
-  // The address stays as a standard string since physical Cuban addresses don't get translated
   address: "Calle Habana 559, entre Calle Teniente Rey y, Amargura, La Habana, Cuba",
   coordinates: {
     lat: 23.136327716881077,
@@ -202,7 +208,7 @@ export const amenitiesMockData: Amenity[] = [
 export const hostInfosMockData: HostProfile = {
   names: "Eldys & Reidaldo",
   photo: "/images/hosts/couple.jpg",
-  languages: ["Spanish"], // Kept as string array, we handle the label in the helper function below
+  languages: ["Spanish"], 
   bio: {
     en: "Welcome to our home! We have been hosting guests in La Havana for over 17 years. This used to be the hostal of our son but we took over after his passing. We love sharing our culture, cooking authentic Cuban meals, and helping you navigate our beautiful city. We can help you book excursions to other parts of Cuba if you want (Vinales for example), or even just help you find the right people to do a tour of La Havana in a typical old-school car. Don't hesitate to reach out to us to know more, we look forward to hosting you!",
     fr: "Bienvenue chez nous ! Nous accueillons des voyageurs à La Havane depuis plus de 17 ans. C'était l'auberge de notre fils, mais nous avons pris le relais après son décès. Nous aimons partager notre culture, cuisiner des plats cubains authentiques et vous aider à découvrir notre belle ville. Nous pouvons vous aider à réserver des excursions dans d'autres régions de Cuba (Viñales par exemple), ou simplement vous trouver les bonnes personnes pour faire un tour de La Havane dans une voiture classique typique. N'hésitez pas à nous contacter pour en savoir plus, nous avons hâte de vous accueillir !",
@@ -210,12 +216,57 @@ export const hostInfosMockData: HostProfile = {
   }
 };
 
+export const galleryPhotos = [
+  "/images/home-gallery/home-from-outside.jpeg",
+  "/images/home-gallery/lobby.jpeg",
+  "/images/home-gallery/hallway.jpeg",
+  "/images/home-gallery/first-floor.jpeg",
+];
+
+export const galleryData: GalleryPhoto[] = [
+  {
+    photoURL: "/images/home-gallery/home-from-outside.jpeg",
+    alt: "Street view of a building's facade featuring dark brown wooden double doors, a window covered by ornate black metal security grilles, and decorative stained-glass style panels above the doors and windows depicting a tropical landscape.",
+    legend: {
+      en: "Our house, from the street",
+      fr: "Notre maison, vue de la rue",
+      es: "Nuestra casa, vista desde la calle",
+    },
+  },
+  {
+    photoURL: "/images/home-gallery/lobby.jpeg",
+    alt: "An indoor lobby area with high arched ceilings and a curved staircase leading to an upper balcony. A green TripAdvisor Certificate of Excellence banner hangs from the balcony railing. The walls are decorated with framed certificates, artwork, and a hanging Swiss flag.",
+    legend: {
+      en: "The lobby where we'll first welcome you",
+      fr: "Le hall d'entrée où nous vous accueillerons",
+      es: "El lobby donde le daremos la bienvenida en primer lugar",
+    },
+  },
+  {
+    photoURL: "/images/home-gallery/hallway.jpeg",
+    alt: "A long ground-floor hallway with hexagonal terracotta floor tiles. The left wall features a prominent 3D textured relief sculpture. Black metal patio chairs, small tables, and potted plants line the walkway, which leads toward a blue door and a small set of stairs at the back.",
+    legend: {
+      en: "The hallway to your room",
+      fr: "Le couloir menant à votre chambre",
+      es: "El pasillo que lleva a su habitación",
+    },
+  },
+  {
+    photoURL: "/images/home-gallery/first-floor.jpeg",
+    alt: "A narrow upper-floor balcony hallway with terracotta floor tiles. On the right, an ornate black wrought-iron railing overlooks a lower courtyard area. Several external air conditioning units are mounted on the opposite wall across the open space.",
+    legend: {
+      en: "The first floor hallway, where some of the rooms are located",
+      fr: "Le couloir du premier étage, où sont situées certaines des chambres",
+      es: "El pasillo del primer piso, donde se encuentran algunas de las habitaciones",
+    },
+  },
+]
 // --------------- HELPER FUNCTIONS & TEXT ---------------
 
 export const footerInfo = {
-  en: "Manoncey. All rights reserved. Made with ❤️ in Paris",
-  fr: "Manoncey. Tous droits réservés. Fait avec ❤️ à Paris",
-  es: "Manoncey. Todos los derechos reservados. Hecho con ❤️ en París"
+  en: "Manoncey. All rights reserved. Made with ♡︎ in Paris",
+  fr: "Manoncey. Tous droits réservés. Fait avec ♡︎ à Paris",
+  es: "Manoncey. Todos los derechos reservados. Hecho con ♡︎ en París"
 };
 
 export const bookingInfo = {
@@ -225,9 +276,9 @@ export const bookingInfo = {
     es: "Cómo Reservar"
   },
   bookingDescription: {
-    en: "Booking is simple. Reach out to us directly to confirm availability for your dates.\nWe typically respond within two days.",
-    fr: "Réserver est simple. Contactez-nous directement pour confirmer la disponibilité de vos dates.\nNous répondons généralement sous deux jours.",
-    es: "Reservar es sencillo. Contáctenos directamente para confirmar la disponibilidad para sus fechas.\nNormalmente respondemos en un plazo de dos días."
+    en: "To book, reach out to us directly to confirm availability for your dates. Please include the type of room you wish to reserve and the number of guests in your request. We typically respond within two days.",
+    fr: "Pour réserver, contactez-nous directement pour confirmer la disponibilité de vos dates. Veuillez préciser s'il vous plaît le type de chambre souhaité ainsi que le nombre de personnes dans votre demande. Nous répondons généralement sous deux jours.",
+    es: "Para reservar, contáctenos directamente para confirmar la disponibilidad para sus fechas. Por favor, incluya el tipo de habitación que desea reservar y el número de personas en su solicitud. Normalmente respondemos en un plazo de dos días."
   },
   email: {
     en: "Contact via Email",

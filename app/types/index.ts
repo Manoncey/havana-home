@@ -10,7 +10,7 @@ export interface LocalizedString {
 
 // --------------- WEBSITE RELATED ---------------
 
-export type SectionName = "havana" | "rooms" | "about" | "booking";
+export type SectionName = "havana" | "rooms" | "about" | "house" | "booking";
 
 export interface Section {
   id: SectionName;      // <section id="havana">
@@ -50,13 +50,13 @@ export interface Room {
   capacity: number;
   mobilePhotos: string[];
   desktopPhotos: string[];
-  description: LocalizedString; // <--- Strictly typed for 3 languages
+  description: LocalizedString; 
   price?: string;
 };
 
 export interface Amenity {
   id: string;
-  name: LocalizedString; // <--- Strictly typed for 3 languages
+  name: LocalizedString; 
   icon?: AmenityIcon;
   isAvailable: boolean; 
 }
@@ -74,7 +74,13 @@ export type AmenityIcon =
 
 export interface HostProfile {
   names: string;
-  bio: LocalizedString; // <--- Strictly typed for 3 languages
+  bio: LocalizedString; 
   photo: string;
   languages: string[];
+}
+
+export interface GalleryPhoto {
+  photoURL: string;
+  alt: string;
+  legend: LocalizedString;
 }
