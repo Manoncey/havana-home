@@ -15,6 +15,7 @@ export interface ContactInfo {
   coordinates: { // for the map
     lat: number;
     lng: number;
+    googlePlaceId?: string;
   };
 }
 

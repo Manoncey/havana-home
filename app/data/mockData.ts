@@ -13,7 +13,8 @@ export const contactInfoMockData: ContactInfo = {
   address: "Calle Habana 559, entre Calle Teniente Rey y, Amargura, La Habana, Cuba",
   coordinates: {
     lat: 23.136327716881077,
-    lng: -82.35267261349513
+    lng: -82.35267261349513,
+    googlePlaceId: "ChIJCy6KE-t5zYgR_x8K3xGf0bE",
   }
 };
 

@@ -12,9 +12,7 @@ interface Props {
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 export default function Booking({ contact, section }: Props) {
-  const mapEmbedUrl = `https://www.google.com/maps/embed/v1/view?key=${API_KEY}&center=${contact.coordinates.lat},${contact.coordinates.lng}&zoom=16`;
-  const fallbackMapUrl = `https://maps.google.com/maps?q=${contact.coordinates.lat},${contact.coordinates.lng}&z=16&output=embed`;
-
+const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=place_id:${contact.coordinates.googlePlaceId}&zoom=16`;
   return (
     <Box component="section" id={section.id} className="section-global">
       <Grid container className="booking-grid-container">
@@ -61,7 +59,7 @@ export default function Booking({ contact, section }: Props) {
         <Grid size={{ xs: 12, md: 5 }} className="map-container">
           <iframe
             title="Location Map"
-            src={fallbackMapUrl}
+            src={mapEmbedUrl}
             className="google-map-iframe"
             allowFullScreen
             loading="lazy"
