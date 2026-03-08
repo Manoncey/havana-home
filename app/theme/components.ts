@@ -298,7 +298,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
     styleOverrides: (theme) => ({
       // ----------------- Desktop Nav -----------------------
       ".nav-menu-desktop": {
-        display: 'flex',
+        display: 'none',
         alignItems: 'center',
         gap: theme.spacing(2),
         [theme.breakpoints.up("md")]: { display: "flex" },
