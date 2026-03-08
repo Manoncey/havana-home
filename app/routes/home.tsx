@@ -3,7 +3,7 @@ import { HomePage } from "../homePage";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Havana Club" },
+    { title: "Hostal in La Havana - Calle Habana 559" },
     { name: "description", content: "Book your room at La Havana" },
   ];
 }
