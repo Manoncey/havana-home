@@ -86,7 +86,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         }),
         ...(ownerState.className?.includes("footer-credit") && {
           fontSize: "0.8rem",
-          color: theme.palette.text.disabled,
+          color: theme.palette.text.secondary, 
           textAlign: "center",
           marginTop: theme.spacing(1),
           fontStyle: "italic",
@@ -94,8 +94,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
       }),
     },
   },
-// ---------------------------------- Links ----------------------------------
-
+  // ---------------------------------- Links ----------------------------------
   MuiLink: {
     styleOverrides: {
       root: {
@@ -163,6 +162,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
           padding: theme.spacing(4),
           [theme.breakpoints.up("md")]: { padding: theme.spacing(8) },
         }),
+        
         // ----------------- Booking Layout --------------------
         ...(ownerState.className?.includes("booking-grid-container") && {
           width: "100%",
@@ -179,19 +179,20 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
     },
   },
 
-// ---------------------------------- Navigation (Header & Buttons) ----------------------------------
+  // ---------------------------------- Navigation (Header & Buttons) ----------------------------------
   MuiAppBar: {
     styleOverrides: {
       root: ({ theme }) => ({
         backgroundColor: theme.palette.background.default,
         boxShadow: "none",
+        borderBottom: `1px solid ${theme.palette.divider}`,
       }),
     },
   },
   MuiToolbar: {
     styleOverrides: {
       root: ({ theme }) => ({
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: "transparent",
         paddingLeft: theme.spacing(3),
         paddingRight: theme.spacing(3),
         width: "100%",
@@ -209,6 +210,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
   MuiButton: {
     styleOverrides: {
       root: ({ ownerState, theme }) => ({
+        borderRadius: "4px", 
         ...(ownerState.className?.includes("nav-button") && {
           textTransform: "none",
           flexGrow: 1,
@@ -222,6 +224,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
   MuiIconButton: {
     styleOverrides: {
       root: ({ ownerState, theme }) => ({
+        borderRadius: "4px", 
         ...(ownerState.className?.includes("mobile-menu-btn") && {
           color: theme.palette.text.primary,
           display: "inline-flex",
@@ -236,7 +239,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         ...(ownerState.className?.includes("section-divider") && {
           marginBottom: theme.spacing(4),
           width: "50px",
-          borderColor: theme.palette.primary.main,
+          borderColor: theme.palette.secondary.main, 
           borderWidth: 2,
         }),
       }),
@@ -260,6 +263,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
           boxSizing: "border-box",
           width: 250,
           backgroundColor: theme.palette.background.default,
+          borderRight: `1px solid ${theme.palette.divider}`, 
         },
       },
       ".mobile-drawer-header": {
@@ -286,7 +290,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
       },
       ".amenity-icon": {
         fontSize: "1rem !important",
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.main, 
         marginTop: "2px",
       },
 
@@ -296,12 +300,12 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         transition: "all 0.3s ease",
         border: 0,
         "& svg": {
-          color: theme.palette.secondary.main,
+          color: theme.palette.secondary.main, 
           fontSize: "2rem",
         },
         "&:hover": {
           "& svg": {
-            color: theme.palette.secondary.dark,
+            color: theme.palette.primary.main, 
             transform: "scale(1.1)",
           },
         },
@@ -317,11 +321,11 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         pointerEvents: "none",
       },
       ".photo-pagination .swiper-pagination-bullet": {
-        backgroundColor: "#ffffff",
+        backgroundColor: theme.palette.divider,
         opacity: 0.5,
       },
       ".photo-pagination .swiper-pagination-bullet-active": {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main, 
         opacity: 1,
       },
 
@@ -364,14 +368,15 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         width: "100%",
         height: "40vh",
         marginBottom: theme.spacing(4),
-        borderRadius: "8px",
+        borderRadius: "4px", 
+        border: `1px solid ${theme.palette.divider}`, 
         overflow: "hidden",
         backgroundColor: theme.palette.background.paper,
       },
       ".mobile-section-image": {
         width: "100%",
         height: "100%",
-        objectFit: "contain !important",
+        objectFit: "cover !important", 
         display: "block",
       },
       ".mobile-room-footer": {
@@ -387,16 +392,17 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         height: "auto",
         aspectRatio: "4 / 5",
         objectFit: "cover",
-        borderRadius: "12px",
-        boxShadow: theme.shadows[6],
+        borderRadius: "4px", 
+        border: `1px solid ${theme.palette.divider}`, 
+        boxShadow: theme.shadows[2], 
       },
-      // ----------------- Map & Booking Styling ------------------
-      // ----------------- Booking & Map UI ------------------
+
+      // ----------------- Map & Booking Styling -------------
       ".google-map-iframe": {
         width: "100%",
         height: "100%",
-        border: 0,
-        // Grayscale filter makes the map look very high-end/architectural
+        border: `1px solid ${theme.palette.divider}`, 
+        borderRadius: "4px", 
         filter: "grayscale(0.2)", 
         transition: "opacity 0.5s ease-in-out",
       },
@@ -422,14 +428,15 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         marginBottom: theme.spacing(3),
       },
       ".step-number": {
-        color: theme.palette.primary.main,
+        color: theme.palette.secondary.main, 
         fontWeight: "bold",
         fontSize: "1.2rem",
       },
       ".site-footer": {
-        paddingTop: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
         backgroundColor: theme.palette.background.paper,
+        borderTop: `1px solid ${theme.palette.divider}`, 
       },
     }),
   },
