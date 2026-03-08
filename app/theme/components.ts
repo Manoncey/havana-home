@@ -6,6 +6,25 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
   MuiTypography: {
     styleOverrides: {
       root: ({ ownerState, theme }) => ({
+        ...(ownerState.className?.includes("lang-text") && {
+          cursor: "pointer",
+          fontSize: "0.85rem",
+          textTransform: "uppercase",
+          transition: "all 0.2s ease",
+          color: theme.palette.text.secondary,
+          fontWeight: 400,
+          "&:hover": {
+            color: theme.palette.text.primary,
+          },
+          "&.active": {
+            color: theme.palette.secondary.main, 
+            fontWeight: 700,
+          }
+        }),
+        ...(ownerState.className?.includes("lang-divider") && {
+          color: theme.palette.divider,
+          fontSize: "0.8rem",
+        }),
         // ----------------- Branding & Nav --------------------
         ...(ownerState.className?.includes("site-name") && {
           flexGrow: 1,
@@ -236,6 +255,12 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
   MuiDivider: {
     styleOverrides: {
       root: ({ ownerState, theme }) => ({
+        '&.nav-vertical-divider': {
+          marginLeft: theme.spacing(1),
+          marginRight: theme.spacing(1),
+          height: '24px',
+          alignSelf: 'center',
+        },
         ...(ownerState.className?.includes("section-divider") && {
           marginBottom: theme.spacing(4),
           width: "50px",
@@ -251,7 +276,9 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
     styleOverrides: (theme) => ({
       // ----------------- Desktop Nav -----------------------
       ".nav-menu-desktop": {
-        display: "none",
+        display: 'flex',
+        alignItems: 'center',
+        gap: theme.spacing(2),
         [theme.breakpoints.up("md")]: { display: "flex" },
       },
 
@@ -268,11 +295,25 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
       },
       ".mobile-drawer-header": {
         padding: theme.spacing(2),
-        display: "flex",
-        justifyContent: "flex-end",
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: theme.spacing(3),
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
       },
       ".mobile-drawer-close-btn": {
         color: theme.palette.text.primary,
+      },
+      '.lang-switcher-container': {
+        display: 'flex',
+        gap: theme.spacing(1.5),
+        alignItems: 'center',
+      },
+      '.lang-item-container': {
+        display: 'flex',
+        alignItems: 'center',
+        gap: theme.spacing(1.5),
       },
       ".mobile-nav-item": {
         paddingTop: theme.spacing(3),
@@ -280,7 +321,6 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),
       },
-
       // ----------------- Amenities List --------------------
       ".amenity-item-wrapper": {
         display: "flex",
@@ -293,7 +333,6 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         color: theme.palette.primary.main, 
         marginTop: "2px",
       },
-
       // ----------------- Swiper & Custom Nav ---------------
       ".swiper": { width: "100%", height: "100%" },
       ".room-nav-btn": {

@@ -1,7 +1,10 @@
 import { Grid, Typography, Box, IconButton, Stack, Divider } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import CheckIcon from "@mui/icons-material/Check";
+import type { Amenity, Room, Section } from "../types"; 
+import { getAmenityIcon } from "~/utils";
+import { getRoomsDescription } from "~/data/mockData";
+import { useLanguage } from "~/context/LanguagesContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -9,25 +12,24 @@ import { Navigation, Pagination } from "swiper/modules";
 // @ts-expect-error
 import "swiper/css/bundle";
 
-import type { Amenity, Room, Section } from "../types"; 
-import { getAmenityIcon } from "~/utils";
-
 interface Props {
   rooms: Room[];
   amenities: Amenity[];
   section: Section;
+
 }
 
 export default function MobileRoomsCarousel({ rooms, section, amenities }: Props) {
+  const { language } = useLanguage();
   return (
     <Box component="section" id={section.id} className="mobile-section-global">
       
       <Box className="mobile-global-info">
         <Typography className="section-overline">
-          {section.label}
+          {section.label[language]}
         </Typography>
         <Typography className="global-description">
-          We have {rooms.length} rooms available, including {rooms.filter((r) => r.type === "Double" ).length} double and {rooms.filter((r) => r.type === "Single" ).length} single. All stays include:
+          {getRoomsDescription(rooms, language)}
         </Typography>
 
         <Grid container spacing={2}>
@@ -40,7 +42,7 @@ export default function MobileRoomsCarousel({ rooms, section, amenities }: Props
                   <Box className="amenity-item-wrapper">
                     <IconComponent className="amenity-icon" />
                     <Typography className="amenities-list">
-                      {amenity.name}
+                      {amenity.name[language]}
                     </Typography>
                   </Box>
                 </Grid>
@@ -101,7 +103,7 @@ export default function MobileRoomsCarousel({ rooms, section, amenities }: Props
               {/* Room description + arrows */}
               <Box className="mobile-room-footer">
                 <Typography variant="body1" className="section-body">
-                  {room.description}
+                  {room.description[language]}
                 </Typography>
 
                 <Box className="nav-arrows-container">

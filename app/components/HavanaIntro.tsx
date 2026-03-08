@@ -1,5 +1,6 @@
 import { Grid, Typography, Box } from "@mui/material";
 import type{ CityInfo, Section } from "../types";
+import { useLanguage } from "~/context/LanguagesContext";
 
 interface Props {
   info: CityInfo;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export default function HavanaIntro({ info, section }: Props) {
+  const { language } = useLanguage();
   return (
     <Grid container className="section-global" alignItems="center">
       
@@ -15,13 +17,13 @@ export default function HavanaIntro({ info, section }: Props) {
          className="section-content-text"
       >
         <Typography variant="h3" component="h2" className="section-title">
-          {section.label}
+          {section.label[language]}
         </Typography>
         <Typography variant="h4" component="h3" gutterBottom className="section-subtitle">
-          {info.title}
+          {info.title[language]}
         </Typography>
         <Typography variant="body1" className="section-body">
-          {info.description}
+          {info.description[language]}
         </Typography>
       </Grid>
 

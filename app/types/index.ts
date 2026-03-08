@@ -1,11 +1,21 @@
+// --------------- TRANSLATION RELATED ---------------
+
+export type SupportedLanguage = "en" | "fr" | "es";
+
+export interface LocalizedString {
+  en: string;
+  fr: string;
+  es: string;
+}
+
 // --------------- WEBSITE RELATED ---------------
 
 export type SectionName = "havana" | "rooms" | "about" | "booking";
 
 export interface Section {
   id: SectionName;      // <section id="havana">
-  label: string;      // What appears in the Menu 
-  title: string;      // in the component
+  label: LocalizedString; // What appears in the Menu 
+  title: LocalizedString; // in the component
   icon: string;
 }
 
@@ -21,8 +31,8 @@ export interface ContactInfo {
 }
 
 export interface CityInfo {
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedString;
   photos: string[];
   coordinates?: { // for the map
     lat: number;
@@ -35,21 +45,22 @@ export interface CityInfo {
 type RoomType = "Single" | "Twin" | "Double" | "Triple";
 
 export interface Room {
-  roomNumber: string,
-  type: RoomType,
-  capacity: number,
-  mobilePhotos: string[],
-  desktopPhotos: string[],
-  description: string,
-  price?: string,
+  roomNumber: string;
+  type: RoomType;
+  capacity: number;
+  mobilePhotos: string[];
+  desktopPhotos: string[];
+  description: LocalizedString; // <--- Strictly typed for 3 languages
+  price?: string;
 };
 
 export interface Amenity {
   id: string;
-  name: string;
+  name: LocalizedString; // <--- Strictly typed for 3 languages
   icon?: AmenityIcon;
   isAvailable: boolean; 
 }
+
 export type AmenityIcon = 
   | "Wifi" 
   | "AcUnit" 
@@ -63,7 +74,7 @@ export type AmenityIcon =
 
 export interface HostProfile {
   names: string;
-  bio: string;
+  bio: LocalizedString; // <--- Strictly typed for 3 languages
   photo: string;
   languages: string[];
 }

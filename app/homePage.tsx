@@ -8,9 +8,11 @@ import RoomsCarousel from "./components/RoomCarouselMapping";
 import AboutUs from "./components/AboutUs";
 import Booking from "./components/Booking";
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./context/LanguagesContext";
 
 export function HomePage() {
   return (
+    <LanguageProvider>
     <ThemeProvider theme={appTheme}>
       <CssBaseline />
       <Navigation sections={siteSectionsMockData} />
@@ -38,7 +40,7 @@ export function HomePage() {
 
               {/* AboutUs Section */}
               {section.id === "about" && (
-                <AboutUs host={hostInfosMockData} section={section} />
+                <AboutUs host={hostInfosMockData} section={section}/>
               )}
 
               {/* AboutUs Section */}
@@ -51,5 +53,6 @@ export function HomePage() {
       </main>
       <Footer />
     </ThemeProvider>
+    </LanguageProvider>
   );
 }
