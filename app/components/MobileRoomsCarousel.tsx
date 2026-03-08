@@ -3,7 +3,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import type { Amenity, Room, Section } from "../types"; 
 import { getAmenityIcon } from "~/utils";
-import { getRoomsDescription } from "~/data/mockData";
+import { getRoomsDescription } from "~/data/websiteData";
 import { useLanguage } from "~/context/LanguagesContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,7 +26,7 @@ export default function MobileRoomsCarousel({ rooms, section, amenities }: Props
       
       <Box className="mobile-global-info">
         <Typography className="section-overline">
-          {section.label[language]}
+          {section.title[language]}
         </Typography>
         <Typography className="global-description">
           {getRoomsDescription(rooms, language)}

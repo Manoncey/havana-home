@@ -1,6 +1,6 @@
 import { Grid, Typography, Box, Divider } from "@mui/material";
 import type { HostProfile, Section } from "../types";
-import { getLanguagesSpoken } from "~/data/mockData";
+import { getLanguagesSpoken } from "~/data/websiteData";
 import { useLanguage } from "~/context/LanguagesContext";
 
 interface Props {
@@ -28,7 +28,7 @@ export default function AboutUs({ host, section }: Props) {
         <Grid size={{ xs: 12, md: 7 }} className="section-content-text">
           <Box className="global-info-wrapper">
             <Typography className="section-overline">
-              {section.label[language]}
+              {section.title[language]}
             </Typography>
             <Typography variant="h3" component="h2" className="section-title">
               {host.names}

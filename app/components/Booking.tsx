@@ -1,10 +1,10 @@
 import { Grid, Typography, Box, Divider, Link } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import type { ContactInfo, Section } from "../types";
-import { bookingInfo } from "~/data/mockData";
+import { bookingInfo } from "~/data/websiteData";
 import { useLanguage } from "~/context/LanguagesContext";
+import { LocationPin } from "@mui/icons-material";
 
 interface Props {
   contact: ContactInfo;
@@ -23,7 +23,7 @@ export default function Booking({ contact, section }: Props) {
         
         <Grid size={{ xs: 12, md: 7 }} className="section-content-text">
           <Box className="global-info-wrapper">
-            <Typography className="section-overline">{section.label[language]}</Typography>
+            <Typography className="section-overline">{section.title[language]}</Typography>
             <Typography variant="h3" className="section-title">{bookingInfo.title[language]}</Typography>
           </Box>
 
@@ -49,8 +49,8 @@ export default function Booking({ contact, section }: Props) {
                 <Typography className="contact-text-primary">{bookingInfo.email[language]}</Typography>
               </Link>
 
-              <Box className="contact-link">
-                <LocationOnIcon className="contact-icon" />
+              <Box className="contact-no-link">
+                <LocationPin className="contact-icon" />
                 <Typography className="contact-text-secondary">
                   {contact.address}
                 </Typography>

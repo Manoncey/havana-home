@@ -11,7 +11,7 @@ import type {
 
 // --------------- UI STRUCTURE DATA ---------------
 
-export const siteSectionsMockData: Section[] = [
+export const siteSectionsData: Section[] = [
   { 
     id: "havana", 
     icon: "LocationCity",
@@ -44,7 +44,7 @@ export const siteSectionsMockData: Section[] = [
   },
 ];
 
-export const contactInfoMockData: ContactInfo = {
+export const contactInfoData: ContactInfo = {
   phone: "+33650388510",
   email: "venturamanon@gmail.com",
   address: "Calle Habana 559, entre Calle Teniente Rey y, Amargura, La Habana, Cuba",
@@ -57,7 +57,7 @@ export const contactInfoMockData: ContactInfo = {
 
 // --------------- BUSINESS DATA ---------------
 
-export const HavanaInfoMockData: CityInfo = {
+export const HavanaInfoData: CityInfo = {
   photos: ["/images/havana/street.jpg"],
   title: { 
     en: "Welcome to Havana", 
@@ -71,7 +71,7 @@ export const HavanaInfoMockData: CityInfo = {
   }
 };
 
-export const roomsMockData: Room[] = [
+export const roomsData: Room[] = [
   {
     roomNumber: "Room 1",
     type: "Triple",
@@ -152,7 +152,7 @@ export const roomsMockData: Room[] = [
   }
 ];
 
-export const amenitiesMockData: Amenity[] = [
+export const amenitiesData: Amenity[] = [
   { 
     id: "a1", 
     isAvailable: true, 
@@ -205,7 +205,7 @@ export const amenitiesMockData: Amenity[] = [
   } 
 ];
 
-export const hostInfosMockData: HostProfile = {
+export const hostInfosData: HostProfile = {
   names: "Eldys & Reidaldo",
   photo: "/images/hosts/couple.jpg",
   languages: ["Spanish"], 

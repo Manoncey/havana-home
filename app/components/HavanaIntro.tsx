@@ -16,12 +16,13 @@ export default function HavanaIntro({ info, section }: Props) {
         size={{ xs: 12, md: 7 }} 
          className="section-content-text"
       >
-        <Typography variant="h3" component="h2" className="section-title">
-          {section.label[language]}
+        <Typography className="section-overline">
+          {section.title[language]}
         </Typography>
-        <Typography variant="h4" component="h3" gutterBottom className="section-subtitle">
+        <Typography variant="h3" component="h2" className="section-title">
           {info.title[language]}
         </Typography>
+
         <Typography variant="body1" className="section-body">
           {info.description[language]}
         </Typography>

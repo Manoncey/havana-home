@@ -1,6 +1,6 @@
 import { Box, Typography, Container } from "@mui/material";
 import { useLanguage } from "~/context/LanguagesContext";
-import { footerInfo } from "~/data/mockData";
+import { footerInfo } from "~/data/websiteData";
 
 
 export default function Footer() {

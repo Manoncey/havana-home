@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
-import { siteSectionsMockData, HavanaInfoMockData, roomsMockData, amenitiesMockData, hostInfosMockData, contactInfoMockData, galleryData } from "./data/mockData";
+import { siteSectionsData, HavanaInfoData, roomsData, amenitiesData, hostInfosData, contactInfoData, galleryData } from "./data/websiteData";
 import SectionWrapper from "./components/SectionWrapper";
 import Navigation from "./components/Navigation";
 import HavanaIntro from "./components/HavanaIntro";
@@ -16,10 +16,10 @@ export function HomePage() {
     <LanguageProvider>
     <ThemeProvider theme={appTheme}>
       <CssBaseline />
-      <Navigation sections={siteSectionsMockData} />
+      <Navigation sections={siteSectionsData} />
       <main>
         <Toolbar /> 
-        {siteSectionsMockData.map((section, index) => {
+        {siteSectionsData.map((section, index) => {
           const dynamicBg = index % 2 === 0 
             ? appTheme.palette.background.default 
             : appTheme.palette.background.paper;
@@ -32,11 +32,11 @@ export function HomePage() {
             >
               {/* Havana Intro Section */}
               {section.id === "havana" && (
-                <HavanaIntro info={HavanaInfoMockData} section={section} />
+                <HavanaIntro info={HavanaInfoData} section={section} />
               )}
               {/* Rooms Carousel Section */}
               {section.id === "rooms" && (
-                <RoomsCarousel rooms={roomsMockData} amenities={amenitiesMockData} section={section} />
+                <RoomsCarousel rooms={roomsData} amenities={amenitiesData} section={section} />
               )}
 
               {/* Our house Section */}
@@ -46,12 +46,12 @@ export function HomePage() {
   
               {/* AboutUs Section */}
               {section.id === "about" && (
-                <AboutUs host={hostInfosMockData} section={section}/>
+                <AboutUs host={hostInfosData} section={section}/>
               )}
 
               {/* AboutUs Section */}
               {section.id === "booking" && (
-                <Booking contact={contactInfoMockData} section={section} />
+                <Booking contact={contactInfoData} section={section} />
               )}
             </SectionWrapper>
           );

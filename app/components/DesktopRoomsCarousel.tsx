@@ -10,7 +10,7 @@ import "swiper/css/bundle";
 
 import type { Amenity, Room, Section } from "../types"; 
 import { getAmenityIcon } from "~/utils";
-import { getRoomsDescription } from "~/data/mockData";
+import { getRoomsDescription } from "~/data/websiteData";
 import { useLanguage } from "~/context/LanguagesContext";
 
 interface Props {
@@ -44,7 +44,7 @@ export default function DesktopRoomCarousel({ rooms, section, amenities }: Props
                 
                 <Box className="global-info-wrapper">
                   <Typography className="section-overline">
-                    {section.label[language]}
+                    {section.title[language]}
                   </Typography>
                   <Typography className="global-description">
                     {getRoomsDescription(rooms, language)}
