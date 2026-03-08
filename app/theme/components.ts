@@ -55,7 +55,7 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
           flexGrow: 1,
           fontWeight: "bold",
           cursor: "pointer",
-          marginBottom: "10%",
+          marginBottom: theme.spacing(1),
           color: theme.palette.secondary.main,
         }),
         ...(ownerState.className?.includes("section-subtitle") && {
@@ -129,6 +129,28 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
   MuiGrid: {
     styleOverrides: {
       root: ({ ownerState, theme }) => ({
+      ...(ownerState.className?.includes("gallery-grid") && {
+          paddingTop: theme.spacing(12),
+          paddingBottom: theme.spacing(4),
+          paddingLeft: theme.spacing(8),
+          paddingRight: theme.spacing(8),
+      }),
+      ...(ownerState.className?.includes("gallery-image-wrapper") && {
+        width: '100%',
+        position: 'relative',
+        display: 'block',
+        aspectRatio: '4 / 5',
+        overflow: 'hidden',
+        borderRadius: '4px',
+        border: `1px solid`,
+      }),
+      ...(ownerState.className?.includes("gallery-imagen") && {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        display: 'block',
+        opacity: 0,
+      }),
         // ----------------- Global Section Containers ---------
         ...(ownerState.className?.includes("section-global") && {
           alignItems: "center",
@@ -377,6 +399,17 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         [theme.breakpoints.up("md")]: { height: "100dvh" },
       },
       ".global-info-wrapper": { marginBottom: theme.spacing(4) },
+      ".global-house": { 
+        display: "flex",
+        flexDirection: "column",
+        paddingBottom: theme.spacing(2),
+       },
+
+      ".house-info-wrapper": { 
+        paddingTop: theme.spacing(18),
+        paddingLeft: theme.spacing(8),
+        alignSelf: "center",
+       },
       ".room-details-wrapper": { marginBottom: theme.spacing(6) },
       ".photo-pagination-wrapper": {
         position: "absolute",
@@ -454,6 +487,15 @@ export const components: Components<Omit<Theme, "palette" | "components"> & CssV
         "&:hover": {
           opacity: 0.7,
         },
+      },
+      ".contact-no-link": {
+        display: "flex",
+        alignItems: "center",
+        gap: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+      },
+      ".contact-icon": {
+        color: theme.palette.text.secondary,
       },
       ".contact-method": {
         display: "flex",
