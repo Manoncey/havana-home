@@ -11,6 +11,7 @@ export interface Section {
 
 export interface ContactInfo {
   phone: string;
+  email: string;
   address: string;
   coordinates: { // for the map
     lat: number;
@@ -31,7 +32,7 @@ export interface CityInfo {
 
 // --------------- DATA RELATED ---------------
 
-type RoomType = "Single" | "Double";
+type RoomType = "Single" | "Twin" | "Double" | "Triple";
 
 export interface Room {
   roomNumber: string,
@@ -53,6 +54,7 @@ export type AmenityIcon =
   | "Wifi" 
   | "AcUnit" 
   | "Breakfast" 
+  | "Dinner"
   | "Taxi" 
   | "HotWater" 
   | "Fridge" 
