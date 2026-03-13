@@ -45,8 +45,8 @@ export const siteSectionsData: Section[] = [
 ];
 
 export const contactInfoData: ContactInfo = {
-  phone: "+33650388510",
-  email: "venturamanon@gmail.com",
+  phone: "+51996844257",
+  email: "recordemos@gmail.com",
   address: "Calle Habana 559, entre Calle Teniente Rey y, Amargura, La Habana, Cuba",
   coordinates: {
     lat: 23.136327716881077,
