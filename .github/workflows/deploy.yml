@@ -20,6 +20,8 @@ jobs:
       
     - name: Build project
       run: npm run build
+      env:
+        VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
     
     - name: Sync files via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
