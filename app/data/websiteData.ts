@@ -46,7 +46,7 @@ export const siteSectionsData: Section[] = [
 
 export const contactInfoData: ContactInfo = {
   phone: "+51996844257",
-  email: "recordemos@gmail.com",
+  email: "recordemos@hotmail.com",
   address: "Calle Habana 559, entre Calle Teniente Rey y, Amargura, La Habana, Cuba",
   coordinates: {
     lat: 23.136327716881077,
